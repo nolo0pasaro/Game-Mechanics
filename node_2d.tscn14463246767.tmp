@@ -1,0 +1,76 @@
+[gd_scene load_steps=10 format=4 uid="uid://xspw56r0mo8l"]
+
+[ext_resource type="Texture2D" uid="uid://ds8hu2bskalfa" path="res://Tilesets/spritesheet ate agr.png" id="1_kdubu"]
+[ext_resource type="Texture2D" uid="uid://dgwq6s8h6woou" path="res://moveis/mesa.png" id="2_d21ai"]
+[ext_resource type="Texture2D" uid="uid://c2frs6u37yeg3" path="res://moveis/sofazinho.png" id="3_rj586"]
+[ext_resource type="Texture2D" uid="uid://c40qg14w6esxw" path="res://moveis/porta.png" id="4_4d7sh"]
+[ext_resource type="Texture2D" uid="uid://d0gjum1vo3ukh" path="res://moveis/quadro.png" id="5_ir8iy"]
+[ext_resource type="Texture2D" uid="uid://btj8ds03e7a7q" path="res://moveis/sofa.png" id="6_hqns4"]
+[ext_resource type="PackedScene" uid="uid://7doh3ncn0mwm" path="res://protagonista/player.tscn" id="7_d21ai"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x0ka3"]
+texture = ExtResource("1_kdubu")
+texture_region_size = Vector2i(200, 200)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-100, -100, 100, -100, 100, 100, -100, 100)
+
+[sub_resource type="TileSet" id="TileSet_0h7mo"]
+tile_size = Vector2i(200, 200)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_x0ka3")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Node" type="Node" parent="."]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Node"]
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAEAAAABAAAAAQAEAAEAAAACAAAAAQAAAAEAAAAAAAEAAQAAAAIAAAABAAEAAQAAAAIAAAACAAEAAQAAAAIAAAAAAP//AQAAAAAAAAABAP//AQAAAAAAAAACAP//AQAAAAAAAAADAP//AQABAAAAAAADAAAAAQABAAEAAAAGAP//AQABAAAAAAAGAAAAAQABAAEAAAAEAP//AQAEAAAAAAAEAAAAAQAAAAEAAAAEAAEAAQAAAAIAAAAFAP//AQAAAAAAAAAFAAAAAQAAAAEAAAAFAAEAAQAAAAIAAAADAAEAAQAAAAIAAAAGAAEAAQAAAAIAAAAHAP//AQACAAAAAAAHAAAAAQACAAEAAAAHAAEAAQAAAAIAAAAIAP//AQADAAAAAAAIAAAAAQADAAEAAAAIAAEAAQAAAAIAAAAJAP//AQAAAAAAAAAJAAAAAQAAAAEAAAAJAAEAAQAAAAIAAAAKAP//AQAAAAAAAAAKAAAAAQAAAAEAAAAKAAEAAQAAAAIAAAALAP//AQAAAAAAAAALAAAAAQAAAAEAAAALAAEAAQAAAAIAAAA=")
+tile_set = SubResource("TileSet_0h7mo")
+rendering_quadrant_size = 200
+physics_quadrant_size = 200
+
+[node name="Móveis" type="Node" parent="Node"]
+
+[node name="Mesa" type="Sprite2D" parent="Node/Móveis"]
+visible = false
+position = Vector2(1600, 85)
+texture = ExtResource("2_d21ai")
+
+[node name="Sofazinho" type="Sprite2D" parent="Node/Móveis"]
+position = Vector2(2005, 103)
+texture = ExtResource("3_rj586")
+
+[node name="Porta" type="Sprite2D" parent="Node/Móveis"]
+position = Vector2(888, 101)
+texture = ExtResource("4_4d7sh")
+
+[node name="Quadro" type="Sprite2D" parent="Node/Móveis"]
+position = Vector2(512, 73)
+texture = ExtResource("5_ir8iy")
+
+[node name="Sofa" type="Sprite2D" parent="Node/Móveis"]
+position = Vector2(273, 95)
+texture = ExtResource("6_hqns4")
+
+[node name="Player" parent="Node" instance=ExtResource("7_d21ai")]
+position = Vector2(678, 120)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Node/Player"]
+remote_path = NodePath("../../../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(678, 120)
+process_callback = 0
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true

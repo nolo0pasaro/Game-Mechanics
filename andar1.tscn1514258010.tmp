@@ -1,0 +1,103 @@
+[gd_scene load_steps=11 format=4 uid="uid://dp1u6yf76id76"]
+
+[ext_resource type="Texture2D" uid="uid://brlhjuu12uut" path="res://Tilesets/spritesheet ANDAR1.png" id="1_1fs23"]
+[ext_resource type="Texture2D" uid="uid://ds8hu2bskalfa" path="res://Tilesets/spritesheet ate agr.png" id="2_8t7tm"]
+[ext_resource type="PackedScene" uid="uid://7doh3ncn0mwm" path="res://protagonista/player.tscn" id="3_8t7tm"]
+[ext_resource type="Texture2D" uid="uid://b6dkyj7ebi61r" path="res://moveis/Floordown.png" id="4_lfbrv"]
+[ext_resource type="Script" uid="uid://cio73w3horg4f" path="res://area_2d.gd" id="5_21hca"]
+[ext_resource type="Script" uid="uid://bbvqvvcu6dbxh" path="res://descerandar.gd" id="6_lfbrv"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_17ptr"]
+texture = ExtResource("1_1fs23")
+texture_region_size = Vector2i(200, 200)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-100, 85.71428, 100, 85.71428, 100, 100, -100, 100)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-100, 85.71428, 100, 85.71428, 100, 100, -100, 100)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-100, 85.71428, 100, 85.71428, 100, 100, -100, 100)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-100, 85.71428, 100, 85.71428, 100, 100, -100, 100)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-100, -100, 100, -100, 100, 100, -100, 100)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-100, -100, 100, -100, 100, 100, -100, 100)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-100, -100, 100, -100, 100, 100, -100, 100)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_21hca"]
+texture = ExtResource("2_8t7tm")
+texture_region_size = Vector2i(200, 200)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-100, 85.71428, 100, 85.71428, 100, 100, -100, 100)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-100, 100, -100, 85.71428, 100, 85.71428, 100, 100, -100, 100)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-100, 85.71428, 100, 85.71428, 100, 100, -100, 100)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-100, 85.71428, 100, 85.71428, 100, 100, -100, 100)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-100, 85.71428, 100, 85.71428, 100, 100, -100, 100)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-100, -100, 100, -100, 100, 100, -100, 100)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-100, -100, 100, -100, 100, 100, -100, 100)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-100, -100, 100, -100, 100, 100, -100, 100)
+
+[sub_resource type="TileSet" id="TileSet_lfbrv"]
+tile_size = Vector2i(200, 200)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_21hca")
+sources/0 = SubResource("TileSetAtlasSource_17ptr")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfbrv"]
+size = Vector2(91, 187)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+rotation = 0.00039649112
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAIAAAABAAAAAAABAAIAAAACAAAAAAABAAIAAAADAAAAAAABAAIAAAAEAAAAAAABAAIAAAAAAP7/AAAAAAAAAAAAAP//AAAAAAEAAAABAP7/AAABAAAAAAABAP//AAABAAEAAAACAP7/AAACAAAAAAACAP//AAACAAEAAAADAP7/AAAAAAAAAAADAP//AAAAAAEAAAAEAP7/AAABAAAAAAAEAP//AAABAAEAAAAFAP7/AAACAAAAAAAFAP//AAACAAEAAAAFAAAAAAACAAIAAAA=")
+tile_set = SubResource("TileSet_lfbrv")
+rendering_quadrant_size = 200
+physics_quadrant_size = 200
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(200, -104)
+process_callback = 0
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Floordown" type="Sprite2D" parent="Node"]
+position = Vector2(201, -110)
+texture = ExtResource("4_lfbrv")
+
+[node name="Player" parent="Node" instance=ExtResource("3_8t7tm")]
+position = Vector2(200, -104)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Node/Player"]
+remote_path = NodePath("../../../Camera2D")
+
+[node name="Area2D" type="Area2D" parent="Node/Player"]
+position = Vector2(-200, 104)
+script = ExtResource("5_21hca")
+
+[node name="descerandar" type="Area2D" parent="Node"]
+script = ExtResource("6_lfbrv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/descerandar"]
+position = Vector2(201.5, -108.5)
+shape = SubResource("RectangleShape2D_lfbrv")
